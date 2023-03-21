@@ -1,11 +1,19 @@
-from django.http import HttpResponse
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from .models import User
 
 # Create your views here.
-
+@api_view(['POST'])
 def Signup(request):
-    return HttpResponse("<h1>guess you want to signup?</h1>")
+
+    myInfo = request.data
 
 
 
+    return Response(data = myInfo)
+
+
+@api_view(['POST'])
 def Login(request):
-    return HttpResponse("<h1>guess you want to login?</h1>")
+
+    return Response(data= request.data)
